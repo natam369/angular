@@ -1,0 +1,54 @@
+
+apt install python-software-properties
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+apt install nodejs
+npm install -g @angular/cli
+npm i npm@latest -g
+
+Steps to deploy Angular Project
+	git clone <Git URL>      Ex: git clone https://github.com/DanWahlin/Angular-HelloWorld.git
+	cd Angular-HelloWorld/
+	vim Dockerfile
+	
+
+		
+		FROM node:9.6.1
+		
+		
+		
+		RUN mkdir /usr/src/
+		
+		
+		
+		
+		WORKDIR /usr/src/
+		
+		
+		
+		
+		RUN npm install -g @angular/cli@
+		
+		
+		
+		
+		COPY . /usr/src/
+		
+		
+		
+		
+		CMD ng serve --host 0.0.0.0 --port 4200  
+		
+		
+	
+	
+	npm install
+	docker build -t angular-app-image .
+	docker images
+	docker run -d -p 4200:4200 angular-app-image
+
+
+
+
+
+
+
