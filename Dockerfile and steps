@@ -1,0 +1,30 @@
+git clone <Git URL>      Ex: git clone https://github.com/DanWahlin/Angular-HelloWorld.git
+cd Angular-HelloWorld/
+
+
+vim Dockerfile
+	
+
+		
+		FROM node:12.0
+		
+		RUN MKDIR /usr/src/
+		
+		WORKDIR /usr/src/
+		
+		
+				
+		RUN npm install -g @angular/cli@
+		
+		
+		
+		
+		COPY . /usr/src/
+
+               
+                RUN npm install
+		
+	
+docker build -t angular-app-image .
+docker images
+docker run -d -p 4200:4200 angular-app-image
